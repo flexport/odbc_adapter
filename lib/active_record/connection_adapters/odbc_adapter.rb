@@ -32,7 +32,7 @@ module ActiveRecord
             raise ArgumentError, 'No data source name (:dsn) or connection string (:conn_str) specified.'
           end
 
-        database_metadata = ::ODBCAdapter::DatabaseMetadata.new(connection, config[:encoding_bug])
+        database_metadata = ::ODBCAdapter::DatabaseMetadata.new(connection)
         database_metadata.adapter_class.new(connection, logger, config, database_metadata)
       end
 
