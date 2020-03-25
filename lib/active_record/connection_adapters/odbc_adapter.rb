@@ -133,7 +133,6 @@ module ActiveRecord
       # new connection with the database.
       def reconnect!
         disconnect!
-        odbc_module = @config[:encoding] == 'utf8' ? ODBC_UTF8 : ODBC
         @connection =
           if @config[:driver]
             ODBC::Database.new.drvconnect(@config[:driver])
